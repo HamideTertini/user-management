@@ -1,5 +1,4 @@
-import { Card, Button, Space, Typography } from "antd";
-
+import { Card, Button, Space, Typography} from "antd";
 import { MailOutlined, BankOutlined, EyeOutlined, EditOutlined, DeleteOutlined } from "@ant-design/icons";
 import { useNavigate } from "react-router-dom";
 import { User } from "@/store/api/usersApi";
@@ -7,7 +6,7 @@ import { User } from "@/store/api/usersApi";
 const { Text, Title } = Typography;
 
 interface UserCardProps {
-  user: User; 
+  user: User;
   onEdit: (user: User) => void;
   onDelete: (id: number) => void;
 }
@@ -63,6 +62,7 @@ const UserCard = ({ user, onEdit, onDelete }: UserCardProps) => {
           >
             View Details
           </Button>
+           <Space size="small">
           <Button
             icon={<EditOutlined />}
             onClick={() => onEdit(user)}
@@ -75,6 +75,7 @@ const UserCard = ({ user, onEdit, onDelete }: UserCardProps) => {
             style={{ borderRadius: 8 }}
           />
         </Space>
+      </Space>
       </Space>
     </Card>
   );
