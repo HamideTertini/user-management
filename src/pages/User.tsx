@@ -3,7 +3,6 @@ import { Layout, Input, Button, Space, Row, Col, Modal, Select, Spin, Typography
 import { SearchOutlined, PlusOutlined, SortAscendingOutlined } from "@ant-design/icons";
 import { useGetUsersQuery } from "@/store/api/usersApi";
 import { useAppDispatch, useAppSelector } from "@/store/hooks";
-
 import {
   addLocalUser,
   updateLocalUser,
@@ -17,6 +16,7 @@ import UserForm from "@/components/UserForm";
 
 const { Content } = Layout;
 const { Title, Text } = Typography;
+ 
 
 const Users = () => {
   const { data: apiUsers = [], isLoading, error } = useGetUsersQuery();
@@ -26,7 +26,7 @@ const Users = () => {
   );
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [editingUser, setEditingUser] = useState<User | undefined>();
-
+  const [modal, contextHolder] = Modal.useModal();
   const allUsers = useMemo(() => {
     return [...localUsers, ...apiUsers];
   }, [localUsers, apiUsers]);
@@ -85,7 +85,7 @@ const Users = () => {
   };
 
   const handleDeleteUser = (id: number) => {
-    Modal.confirm({
+    modal.confirm({
       title: "Delete User",
       content: "Are you sure you want to delete this user?",
       okText: "Delete",
@@ -217,7 +217,7 @@ const Users = () => {
             )}
           </Space>
 
-          <Modal
+           <Modal
             title={editingUser ? "Edit User" : "Add New User"}
             open={isModalOpen}
             onCancel={handleModalClose}
@@ -231,6 +231,7 @@ const Users = () => {
               onCancel={handleModalClose}
             />
           </Modal>
+          {contextHolder}
         </div>
       </Content>
     </Layout>

@@ -1,73 +1,133 @@
-# React + TypeScript + Vite
+#  FrontEnd Internship Challenge – User Management App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## 🔹 Project Overview
 
-Currently, two official plugins are available:
+This is a **User Management Application** built entirely by me for the **Frontend Internship Challenge**. The app demonstrates advanced React skills including component architecture, state management with Redux Toolkit, data fetching via RTK Query, routing with React Router, and UI design using Ant Design & Tailwind CSS.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+The application allows you to **view, search, sort, add, edit, and delete users**, with a professional and responsive interface.
 
-## React Compiler
+---
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Features
 
-## Expanding the ESLint configuration
+### Core Features
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+* **List Users**: Fetch users from [JSONPlaceholder API](https://jsonplaceholder.typicode.com/users) and display in cards with **name, email, phone, website, company, and address**.
+* **Search**: Filter users by **name** or **email** on the client-side.
+* **Sorting**: Sort users by **name, email, or company** in ascending or descending order.
+* **Add User (Local Only)**: Add new users with a form and validation. New users are added locally at the top of the list.
+* **Edit User**: Update existing users locally.
+* **Delete User**: Remove users locally with confirmation modal.
+* **User Details Page**: Clicking a user shows full details including address, company, contact info, and website.
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+### Advanced Features
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+* **Responsive Design**: Fully optimized for mobile, tablet, and desktop.
+* **Redux Toolkit & RTK Query**: For state management and API integration.
+* **Modal Forms**: Add or edit users using a reusable modal form component.
+* **Client-side Sorting and Searching**: Efficient handling of large user lists.
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+---
+
+## 🛠 Tech Stack
+
+| Layer            | Technology                |
+| ---------------- | ------------------------- |
+| Frontend         | React + TypeScript        |
+| State Management | Redux Toolkit + RTK Query |
+| Routing          | React Router v6           |
+| UI Library       | Ant Design                |
+| Styling          | Tailwind CSS              |
+| Build Tool       | Vite                      |
+
+---
+
+## Project Structure
+
+```
+src/
+├─ api/             # RTK Query API slices
+├─ components/      # Reusable components (UserCard, UserForm)
+├─ pages/           # Main pages (Users, UserDetails)
+├─ store/           # Redux slices and store setup
+├─ App.tsx          # App routes
+└─ main.tsx         # Entry point
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+---
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+##  Getting Started
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+### Prerequisites
+
+* Node.js >= 18
+* npm (or yarn)
+
+### Installation
+
+```bash
+# Clone the repository
+git clone <YOUR_GIT_URL>
+
+# Navigate to the project folder
+cd user-management-app
+
+# Install dependencies
+npm install
+
+# Start development server
+npm run dev
 ```
+
+Open the app at `http://localhost:5173`.
+
+---
+
+##  Usage
+
+1. **View Users**: Default page lists all API users and local additions.
+2. **Search Users**: Type a name or email in the search bar.
+3. **Sort Users**: Use the dropdown to sort by name, email, or company.
+4. **Add User**: Click the “Add User” button and fill out the form.
+5. **Edit/Delete Users**: Use edit or delete buttons on user cards.
+6. **User Details**: Click a user card to view full profile information.
+
+---
+
+## Deployment
+
+Build production files:
+
+```bash
+npm run build
+```
+
+Deploy the `dist/` folder to platforms like **Vercel, Netlify, or GitHub Pages**.
+
+---
+
+## Authorship
+
+**Author:** Hamide Tertini – Complete implementation of:
+
+* React component architecture
+* Redux Toolkit state management
+* RTK Query API integration
+* Forms, validation, search & sorting
+* Responsive UI design with Ant Design & Tailwind CSS
+
+
+
+---
+
+## Highlights
+
+ Fully **responsive UI
+ Clean, modern design
+TypeScript type safety
+Redux Toolkit & RTK Query integration
+Client-side search, sort, and local CRUD
+
+---
+
+

@@ -1,7 +1,5 @@
 import { useParams, useNavigate } from "react-router-dom";
 import { Layout, Button, Card, Space, Row, Col, Typography} from "antd";
-
-
 import {
   ArrowLeftOutlined,
   MailOutlined,
@@ -90,15 +88,13 @@ const UserDetails = () => {
                   >
                     {user.name.charAt(0)}
                   </div>
-                    <Space>
-  <MailOutlined style={{ color: '#3b82f6', fontSize: 18 }} />
-  <div>
-    <Text type="secondary" style={{ display: 'block', fontSize: 12 }}>
-      Email
-    </Text>
-    <Text strong>{user.email}</Text>
-  </div>
-</Space>
+                <Space>
+                    <MailOutlined style={{ color: '#3b82f6', fontSize: 18 }} />
+                <div>
+                    <Text type="secondary" style={{ display: 'block', fontSize: 12 }}> Email  </Text>
+                    <Text strong>{user.email}</Text>
+                    </div>
+             </Space>
 
                   <Space direction="vertical" size="middle" style={{ width: '100%', textAlign: 'left' }}>
                     <div>
